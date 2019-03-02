@@ -13,9 +13,9 @@
   <tbody>
     <% @products.each do |product| %>
     <tr>
-      <th>product.name</th>
-      <th>product.image</th>
-      <th>product.price</th>
+      <th><%= product.name %></th>
+      <th><%= product.image %></th>
+      <th><%= product.price %></th>
       <th><%= link_to 'Edit Detail', edit_admin_product_path(product) %></th>
       <th><%= link_to '', admin_product_path(product), method: :delete, data:{confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash" %></th>
     </tr>
