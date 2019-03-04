@@ -2,8 +2,9 @@
   <%= p.label :name, "Name" %>
   <%= p.text_field :name %>
 
-  <%= p.label :image, "Image" %>
-  <%= p.text_field :image %>
+  <%= p.label :image, "Photo" %>
+  <%= image_tag @product.image, width: '300px' if @product.image? %>
+  <%= p.file_field :image %>
 
   <%= p.label :description, "Description" %>
   <%= p.text_area :description %>
