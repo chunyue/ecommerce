@@ -1,16 +1,28 @@
-<%= form_for [:admin, @product] do |p| %>
-  <%= p.label :name, "Name" %>
-  <%= p.text_field :name %>
+<div class="container">
+  <div class="row">
 
-  <%= p.label :image, "Photo" %>
-  <%= image_tag @product.image, width: '300px' if @product.image? %>
-  <%= p.file_field :image %>
+    <%= form_for [:admin, @product] do |p| %>
+    <div class="form-group">
+      <%= p.label :name, "Name" %>
+      <%= p.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :image, "Photo" %>
+      <%= image_tag @product.image, width: '300px' if @product.image? %>
+      <%= p.file_field :image %>
+    </div>  
+    <div class="form-group">
+      <%= p.label :description, "Description" %>
+      <%= p.text_area :description, class: "form-control" %>
+    </div>  
+    <div class="form-group">
+      <%= p.label :price, "Price" %>
+      <%= p.text_field :price, class: "form-control", placeholder: "請輸入阿拉伯數字" %>
+    </div>  
+    <div class="form-group">
+      <%= p.submit class: "btn btn-primary" %>  
+    </div>
+    <% end %>
+  </div>
+</div>
 
-  <%= p.label :description, "Description" %>
-  <%= p.text_area :description %>
-
-  <%= p.label :price, "Price" %>
-  <%= p.text_field :price %>
-
-  <%= p.submit %>  
-<% end %>
