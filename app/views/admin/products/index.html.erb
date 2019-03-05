@@ -1,28 +1,36 @@
 <%= render partial: "nav" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>產品後台</h1>
+      <%= link_to 'Add New Product', new_admin_product_path, class: "btn btn-primary" %>
+      <p></p>  
+      <table class="table table-striped table-condensed table-bordered" >
+        <thead> 
+          <tr>
+            <th>Product Name</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Option</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+          <tr>
+            <th><%= product.name %></th>
+            <th><%= image_tag product.image, width: '100px' if product.image? %></th>
+            <th><%= product.price %></th>
+            <th><%= link_to 'Edit Detail', edit_admin_product_path(product) %></th>
+            <th><%= link_to '', admin_product_path(product), method: :delete, data:{confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash" %></th>
+          </tr>
+          <% end %>
+        </tbody>  
+      </table>
 
-<h1>產品後台</h1>
-<%= link_to 'Add New Product', new_admin_product_path, class: "btn btn-primary" %>
-<table class="table table-striped table-condensed table-bordered" >
-  <thead> 
-    <tr>
-      <th>Product Name</th>
-      <th>Image</th>
-      <th>Price</th>
-      <th>Option</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-    <tr>
-      <th><%= product.name %></th>
-      <th><%= image_tag product.image, width: '100px' if product.image? %></th>
-      <th><%= product.price %></th>
-      <th><%= link_to 'Edit Detail', edit_admin_product_path(product) %></th>
-      <th><%= link_to '', admin_product_path(product), method: :delete, data:{confirm: "Are you sure?"}, class: "glyphicon glyphicon-trash" %></th>
-    </tr>
-    <% end %>
-  </tbody>  
-</table>
-
-<%= paginate @products %>
+      <div class="text-center">
+        <%= paginate @products %>
+      </div>
+    </div>
+  </div>  
+</div>
