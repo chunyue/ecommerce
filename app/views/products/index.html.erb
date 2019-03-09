@@ -11,16 +11,16 @@
           <%= image_tag product.image, height: '50px' if product.image? %>
         </div>
 
-        <div class="product Info" style="height: 100px">
+        <div class="productInfo" style="height: 100px">
           <%= product.name %>
           <br>
-          <%= product.description.first(30) %>
+          <%= product.description.first(25) %>
           <br>
-          <%= product.price %>            
+          NT$ <%= product.price %>            
         </div>
 
-        <div class="addButton" style="height: 30px">
-          <%= link_to 'Add to Cart', class: "btn btn-default " %>
+        <div class="addButton btn btn-default" style="height: 30px">
+          <%= link_to 'Add to Cart' %>
         </div>
 
       </div>
@@ -30,7 +30,14 @@
 
     <div class="cart col-md-2">
       <h1>cart</h1>
-          
+      <hr>
+
+      <hr> 
+      <div>SUBTOTAL </div>
+      <br>
+      <div class="btn btn-default" >
+        <%= link_to 'View Cart' %>
+      </div>    
     </div>
     <div>
       <%= paginate @products %>
