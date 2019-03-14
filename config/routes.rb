@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     root "products#index"
   end
   
-  resource :cart  
+  resource :cart
+
+  resources :products, only: [:index, :show] do
+    post :add_to_cart, on: :member
+  end 
 end
