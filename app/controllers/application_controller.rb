@@ -17,6 +17,15 @@ class ApplicationController < ActionController::Base
     end
 
     def set_cart
+
+      if session[:cart_id]
+        @cart = Cart.find_by(id: sesson[:cart_id])
+      end
+      
+      @cart || = Cart.create
+
+      session[:cart_id] = @cart.id
+      @cart  
       
     end
 
