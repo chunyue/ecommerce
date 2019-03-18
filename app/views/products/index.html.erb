@@ -2,7 +2,7 @@
 
   <div class="row">
 
-    <div class="productItems col-md-10 clearfix">
+    <div class="product-list col-md-10 clearfix">
      <% @products.each do |product| %> 
 
       <div class="item" style="float: left; width: 19%; height: 200px" >
@@ -19,26 +19,16 @@
           NT$ <%= product.price %>            
         </div>
 
-        <div class="addButton btn btn-default" style="height: 30px">
-          <%= link_to 'Add to Cart' %>
+        <div class="addButton" style="height: 30px">
+          <%= button_to 'Add to Cart', add_to_cart_product_path(product) %>
         </div>
 
       </div>
       <% end %>
     </div>  
     
+    <%= render "shared/cart" %>
 
-    <div class="cart col-md-2">
-      <h1>cart</h1>
-      <hr>
-
-      <hr> 
-      <div>SUBTOTAL </div>
-      <br>
-      <div class="btn btn-default" >
-        <%= link_to 'View Cart' %>
-      </div>    
-    </div>
     <div>
       <%= paginate @products %>
     </div>  
