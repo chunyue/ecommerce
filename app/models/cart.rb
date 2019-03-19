@@ -30,7 +30,7 @@ class Cart < ApplicationRecord
       existing_item.save!
     end
     self.cart_items
-    
   end
+
 
 end

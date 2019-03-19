@@ -9,9 +9,10 @@
         <div class="cart-item-info">
           <h5><%= item.product.name %></h5>
           單價: $ <%= item.product.price %> <br>
-          <%= button_to '+', add_to_cart_quantity_product_path(item.product), :method => :patch %>
+          <%= link_to '+', add_to_cart_quantity_product_path(item.product), :method => :post %>
           數量: <%= item.quantity %> 
-          <%= button_to '-', sub_to_cart_quantity_product_path(item.product), :method => :patch %>        
+          <%= link_to '-', sub_to_cart_quantity_product_path(item.product), :method => :patch %>    
+          <%= link_to '', remove_item_product_path(item.product), method: :delete, class: "glyphicon glyphicon-trash" %>    
         </div>
       </div>
       <% end %>

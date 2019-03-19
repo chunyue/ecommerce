@@ -25,6 +25,14 @@ class ProductsController < ApplicationController
 
     redirect_to root_path
   end
+
+  def remove_item
+    @product = Product.find(params[:id])
+    cart_item = current_cart.cart_items.find_by(product_id: @product.id)
+    cart_item.destroy
+
+    redirect_to root_path
+  end
   
 
   private
