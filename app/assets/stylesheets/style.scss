@@ -1,7 +1,5 @@
 .product-list{
-  border-right-style: solid;
-  width: calc( 100% - 280px);
-  
+  width: calc( 100% - 300px); 
 }
 
 a {
@@ -17,6 +15,33 @@ a {
 }
 
 .cart{
-  width: 250px;
+  width: 300px;
   float: right;
+  border-left: 1px solid gray;
+  padding-left: 30px;
 }
+
+.cart-item-info {
+    width: 140px;
+    float: right;
+    padding: 0px 15px;
+}
+
+.cart-item-info h5{
+  margin-top: 0px;
+}
+
+.cart-item{
+  width: 250px;
+  height: 130px;
+}
+
+.cart-item img{
+  height: 65px;  
+}
+
+.cart-img{
+  float: left;
+  text-align: center;
+}
+
