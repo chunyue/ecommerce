@@ -18,6 +18,13 @@ class ProductsController < ApplicationController
 
     redirect_to root_path
   end
+
+  def sub_to_cart_quantity
+    @product = Product.find(params[:id])
+    current_cart.sub_cart_item_quantity(@product)
+
+    redirect_to root_path
+  end
   
 
   private

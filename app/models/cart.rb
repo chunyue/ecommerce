@@ -21,4 +21,16 @@ class Cart < ApplicationRecord
      self.cart_items
   end
 
+  def sub_cart_item_quantity(product)
+    existing_item = self.cart_items.find_by( product_id: product)
+    if existing_item.quantity == 1
+       existing_item.destroy
+    else  
+      existing_item.quantity -= 1
+      existing_item.save!
+    end
+    self.cart_items
+    
+  end
+
 end
