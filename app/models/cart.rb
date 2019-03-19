@@ -13,4 +13,12 @@ class Cart < ApplicationRecord
     end  
     self.cart_items
   end
+
+  def add_cart_item_quantity(product)
+    existing_item = self.cart_items.find_by( product_id: product)
+    existing_item.quantity += 1
+    existing_item.save!
+     self.cart_items
+  end
+
 end

@@ -10,6 +10,14 @@ class ProductsController < ApplicationController
 
     redirect_to root_path
   end
+
+
+  def add_to_cart_quantity
+    @product = Product.find(params[:id])
+    current_cart.add_cart_item_quantity(@product)
+
+    redirect_to root_path
+  end
   
 
   private

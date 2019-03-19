@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show] do
     post :add_to_cart, on: :member
+    patch :add_to_cart_quantity, on: :member
   end 
 end
