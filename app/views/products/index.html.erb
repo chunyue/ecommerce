@@ -5,7 +5,7 @@
     <div class="product-list col-md-10 clearfix">
      <% @products.each do |product| %> 
 
-      <div class="item" style="float: left; width: 19%; height: 200px" >
+      <div class="item product_<%= product.id %>" style="float: left; width: 19%; height: 200px" >
          
         <div class="productPic">
           <%= image_tag product.image, height: '50px' if product.image? %>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="addButton" style="height: 30px">
-          <%= button_to 'Add to Cart', add_to_cart_product_path(product) %>
+          <%= button_to 'Add to Cart', add_to_cart_product_path(product), remote: true %>
         </div>
 
       </div>

@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     current_cart.add_cart_item(@product)
 
-    redirect_to root_path
+    #redirect_to root_path
   end
 
 

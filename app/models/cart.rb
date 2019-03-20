@@ -32,5 +32,17 @@ class Cart < ApplicationRecord
     self.cart_items
   end
 
+  def find_item_by(product)
+    self.cart_items.where(product_id: product).first    
+  end
+
+  def cart_add_all
+    b = 0
+    self.cart_items.each do |item|
+      a = item.product.price * item.quantity 
+      b += a
+    end
+    b          
+  end
 
 end
