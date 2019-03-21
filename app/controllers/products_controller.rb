@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
     cart_item = current_cart.cart_items.find_by(product_id: @product.id)
     cart_item.destroy
 
-    redirect_to root_path
+    #redirect_to root_path
   end
   
 
