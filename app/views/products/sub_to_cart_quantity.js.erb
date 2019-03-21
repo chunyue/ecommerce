@@ -1,0 +1,4 @@
+<% item = current_cart.find_item_by(@product) %>;
+
+$('.cart-<%= item.product.id %>-qty').text('數量: <%= item.quantity %>');
+$('.amount').text('$ <%= current_cart.cart_add_all %>');
