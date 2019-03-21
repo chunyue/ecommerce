@@ -5,7 +5,7 @@
         <div class="cart-item-info">
           <h5><%= item.product.name %></h5>
           單價: $ <%= item.product.price %> <br>
-          <%= link_to '+', add_to_cart_quantity_product_path(item.product), :method => :post %>
+          <%= link_to '+', add_to_cart_quantity_product_path(item.product), :method => :post, remote: true %>
           <span class="cart-<%= item.product.id%>-qty"> 數量: <%= item.quantity %> </span>
           <%= link_to '-', sub_to_cart_quantity_product_path(item.product), :method => :patch %>    
           <%= link_to '', remove_item_product_path(item.product), method: :delete, class: "glyphicon glyphicon-trash" %>    

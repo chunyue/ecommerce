@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     current_cart.add_cart_item_quantity(@product)
 
-    redirect_to root_path
+    #redirect_to root_path
   end
 
   def sub_to_cart_quantity
