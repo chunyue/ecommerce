@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   resource :cart
 
+  resources :orders
+
   resources :products, only: [:index, :show] do
     post :add_to_cart, on: :member
     post :add_to_cart_quantity, on: :member

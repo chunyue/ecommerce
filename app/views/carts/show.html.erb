@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="cart-item-list">
+    <div class="cart-item-list panel panel-default">
+      <div class="panel-heading">Shopping List</div>
         <table class="table table-hover">
-          <caption><h2>shopping List</h2></caption>
           <tr>
             <thead>
               <td></td>
@@ -37,9 +37,29 @@
         </table>
       
     </div>
-    <div class="cart-shipping-info">
+    <div class="cart-shipping-info-form panel panel-default">
+      <div class="panel-heading">Shopping Infomation</div>
+
+      <%= form_for @order do |f| %> 
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, placeholder: "Jack", class: "form-control" %>
+      </div>
       
+      <div class="form-group">
+        <%= f.label :phone %>
+        <%= f.text_field :phone, placeholder: "0934567812", class: "form-control" %>
+      </div> 
+      
+      <div class="form-group">
+        <%= f.label :address %>
+        <%= f.text_field :address, placeholder: "北市信義區松信路185號", class: "form-control" %>       
+      </div> 
+
+      </div>  
+        <%= f.submit "Checkout" ,class: "btn btn-primary order-submit" %>
+      <% end %>
+   
     </div>
-  </div>
   
 </div>
