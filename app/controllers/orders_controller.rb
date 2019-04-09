@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   def create
     if current_user.nil?
       #store order data in session so we can retrieve it later
-      sesstion[:new_order_data] = params[:order]
+      session[:new_order_data] = params[:order]
       #redirect to devise login page
       redirect_to new_user_session_path
     else
