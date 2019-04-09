@@ -1,0 +1,24 @@
+<div class="container"> 
+  <table class="table table-striped table-condensed table-bordered" >
+    <thead>
+      <tr>
+        <th>Order Number</th>
+        <th>Price</th>
+        <th>Payment status</th>
+        <th>shipping status</th>
+        <th>Order Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+        <th> <%= order.sn %> </th>
+        <th> <%= order.amount %> </th>
+        <th> <%= order.payment_status %> </th>
+        <th> <%= order.shipping_status %> </th>
+        <th> <%= link_to 'Edit Detail', edit_admin_order_path(order) %> </th>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>   
