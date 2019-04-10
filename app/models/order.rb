@@ -5,6 +5,16 @@ class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :products, through: :order_items
 
+  PAYMENT_STATUS = [
+    ["Not Paid", :not_paid],
+    ["Paid", :paid]
+  ]
+
+  SHIPPING_STATUS =[
+    ["Not Shipping", :not_shipped],
+    ["Shipping", :shipped]
+  ]
+
   def add_order_items(cart)
     cart.cart_items.each do |item|
       self.order_items.build(
