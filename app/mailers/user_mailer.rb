@@ -14,7 +14,15 @@ class UserMailer < ApplicationMailer
     @content = "Your order is shipped!"
 
     mail to: order.user.email,
-    subject: "ALPHA CAMP | #{@order.id} 包裹寄出"
+    subject: "Order ##{@order.sn} 包裹寄出"
+  end
+
+  def notify_order_paid(order)
+    @order = order
+    @content = "Your order has been paid."
+    
+    mail to: order.user.email
+    subject: "Order ##{@order.sn} 已付款"
   end
 
 end
