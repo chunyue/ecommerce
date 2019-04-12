@@ -10,6 +10,9 @@ class Admin::OrdersController < Admin::AdminController
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
+      if @order.shipping_status == "shipped"
+        UserMailer.notify_order_shipped(@order).deliver_now!
+      end  
       redirect_to admin_orders_path, notice: "Order updated"
     else
       flash.now[:alert] = @order.errors.full_message.to_sentence
