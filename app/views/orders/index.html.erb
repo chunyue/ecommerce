@@ -24,9 +24,12 @@
       <div class="order-data">
         <p>Payment Status: <%= order.payment_status %></p>
         <p>Shipping Status: <%= order.shipping_status %> </p>
+        <% if order.shipping_status == "not_shipped" %>
+          <%= link_to "Cancel Order", order_path(order), method: :patch, class: "btn btn-primary"%>
+        <% end %>
       </div>
+  
 
-      
     </div>
   </div>
 <% end %>
