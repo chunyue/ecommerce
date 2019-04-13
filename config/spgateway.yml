@@ -1,0 +1,20 @@
+# 智付通測試平台: https://cwww.spgateway.com/
+# 信用卡測試卡號: 4000-2211-2222-2222
+
+default: &default
+  merchant_id: MS36009955
+  hash_key: FmrhDli3LSAW4IqpsmUEiLI5b8fqZhgi
+  hash_iv: Uqd5Ral3z9jpRzDh
+  url: https://ccore.spgateway.com/MPG/mpg_gateway
+
+development:
+  <<: *default
+
+staging:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

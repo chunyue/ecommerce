@@ -1,4 +1,5 @@
 class Spgateway
+  
   mattr_accessor :merchant_id
   mattr_accessor :hash_key
   mattr_accessor :hash_iv
@@ -6,10 +7,12 @@ class Spgateway
 
   def initialize(payment)
     @payment = payment
-    self.merchant_id = "MS36009955"
-    self.hssh_key = "FmrhDli3LSAW4IqpsmUEiLI5b8fqZhgi"
-    self.hash_iv = "Uqd5Ral3z9jpRzDh"
-    self.url = "https://ccore.newebpay.com/MPG/mpg_gateway"
+    spgateway_config = Rails.application.config_for(:spgateway)
+
+    self.merchant_id = spgateway_config["merchant_id"]
+    self.hash_key = spgateway_config["hash_key"]
+    self.hash_iv = spgateway_config["hash_iv"]
+    self.url = spgateway_config["url"]
   end  
 
   def generate_form_data(return_url)
@@ -21,7 +24,7 @@ class Spgateway
       MerchantOrderNo: "#{@payment.id}AC",
       Amt: @payment.amount,
       ItemDesc: @payment.order.name,
-      Email: @order.user.email,
+      Email: @payment.order.user.email,
       LoginType: 0,
       ReturnURL: return_url
      }
