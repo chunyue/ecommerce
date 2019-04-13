@@ -47,6 +47,15 @@ class OrdersController < ApplicationController
         order_id: @order.id,
         amount: @order.amount
         )
+
+      spgateway_data = Spgateway.new(@payment).generate_form_data(spgate_return_url)
+
+      @merchant_id = spgateway_data[:MerchantID]
+      @trade_info = spgateway_data[:TradeInfo]
+      @trade_sha = spgateway_data[:TradeSha]
+      @version = spgateway_data[:Version]
+
+      #
       render layout: false
     end  
   end
