@@ -24,6 +24,11 @@
       <div class="order-data">
         <p>Payment Status: <%= order.payment_status %></p>
         <p>Shipping Status: <%= order.shipping_status %> </p>
+
+        <% if order.payment_status == "not_paid" %>
+          <%= link_to "Pay now", checkout_spgateway_order_path(order), method: :post, class: "btn btn-primary" %>
+        <% end %>
+
         <% if order.shipping_status == "not_shipped" %>
           <%= link_to "Cancel Order", order_path(order), method: :patch, class: "btn btn-primary"%>
         <% end %>

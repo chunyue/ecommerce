@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   
   resource :cart
 
-  resources :orders
+  resources :orders do
+    post :checkout_spgateway, on: :member
+  end  
 
   resources :products, only: [:index, :show] do
     post :add_to_cart, on: :member
@@ -20,4 +22,5 @@ Rails.application.routes.draw do
     patch :sub_to_cart_quantity, on: :member
     delete :remove_item, on: :member
   end 
+
 end
