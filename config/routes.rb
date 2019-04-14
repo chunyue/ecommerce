@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   
   post "spgateway/return"
 
+  post "spgateway/notify"
+
   root "products#index"
 
   namespace :admin do
